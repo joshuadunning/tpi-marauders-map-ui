@@ -1,18 +1,36 @@
 import { useState } from "react"
 
 
+
 function Home (){
 
-    let [count, setCount] = useState(0)
+    let [url, seturl] = useState(0)
+
 
     const handleClick = ()=>{
-        setCount(count + 1)
+       
+        
+        fetch("https://dog.ceo/api/breeds/image/random/4").then(response=>{
+        response.json().then(data=> {
+            console.log(data);
+           
+            seturl(data.message);
+        });
+            }).catch(function(error) {
+             console.log('Fetch Error:', error);
+    });
     }
+
+    
     
 //Arnav
     return (
         <>
-            <div>Count {count}</div>
+          
+          {url && url.map(url =>
+                        <center><img src={url} alt="" /></center>
+                    )}
+        
             <button onClick={handleClick} >+ 1</button>
         </>
     )
