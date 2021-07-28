@@ -13,6 +13,17 @@
   }
 }
 
+.wall-default{
+  border: thin;
+  border: 14px solid black;
+}
+
+
+.wall-hp{
+  border: 36px solid;
+  border-image: url('./assets/Marauders-walls.png') 27 / 27px / 4px round;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;

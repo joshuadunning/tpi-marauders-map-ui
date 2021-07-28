@@ -28,7 +28,7 @@ function Navigate(props) {
                 }`}
               >
                 <Link class="nav-link" to="/create">
-                  Create
+                  Sign Up
                 </Link>
               </li>
               <li
