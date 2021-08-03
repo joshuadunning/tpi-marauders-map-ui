@@ -34,6 +34,10 @@ function Map() {
      return theme === 'hp' ? 'hp': ''
    }
 
+   const themePickerBg = () => {
+     return theme === 'hp' ? 'theme-picker-hp' : ''
+   }
+
    useEffect(()=>{
       db.collection("users").onSnapshot((snapshot)=>{
         const arr = []
@@ -53,7 +57,7 @@ function Map() {
       <img src={getLogo()} style={{position: 'fixed', top: '80px', left: '40px', maxHeight: '200px'}}></img>
       <div className="Top row">
         <div className={wallClass() + ' col-8 topleft'}>
-          <select style={{float:'right'}} onChange={(e)=> setTheme(e.target.value)}>
+          <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setTheme(e.target.value)}>
             <option value='default'>Default</option>
             <option value='hp'>Marauders Map</option>
           </select>

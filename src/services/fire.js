@@ -16,10 +16,10 @@ var firebaseConfig = {
   const db = firebase.firestore()
 
   //eslint-disable-next-line
-  if(location.hostname === 'localhost'){
-    auth.useEmulator('http://localhost:9099')
-    db.useEmulator('localhost', 8080)
-  }
+  // if(location.hostname === 'localhost'){
+  //   auth.useEmulator('http://localhost:9099')
+  //   db.useEmulator('localhost', 8080)
+  // }
 
 
 
