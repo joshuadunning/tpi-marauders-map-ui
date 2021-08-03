@@ -33,56 +33,54 @@ function Map() {
 
   return (
     <div className="map">
-      <div>
-          <div class="col-lg-3">
-          <img src={Logo} style={{marginLeft: '-200px', marginBottom: '-100px'}}></img>
+      <img src={Logo} style={{position: 'fixed', top: '80px', left: '40px'}}></img>
+      <div className="Top row">
+        <div className={wallClass() + ' col-8 topleft'}>
+
+        </div>
+        <div className='TopRight col-4 '>
+          <div className={wallClass() + ' space-5 row'}>
+            <h1 className='room-name'>Space 5</h1>
+            <img className="room-image" src={Space2}></img>
+
           </div>
-      <div className="Top">
-        <div className=" row">
-          <div className={wallClass() + " col-lg-9"}  style={{ marginLeft:'-190px' , height: '375px', marginLeft: '7px', borderBottomWidth: '15px', marginTop: '-30px'}}>
-          {/* Top left */}
-          </div>
-          <div className={wallClass() +' col-lg-3'} style={{ marginLeft: '1147px', marginTop:'-375px',  height: '190px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '20px', lineHeight: '1.0'}}>Space 5</h1>
-          <img className="col-xl-1" src={Space2} style={{marginTop: '8px', maxHeight: '70%', maxWidth: '45%', opacity: '0.07'}}></img>
-          {/* Top Right */}
-          </div>
-          <div className={wallClass() + ' col-lg-3'} style={{ marginLeft: '1147px', marginTop:'-190px',  height: '190px', width:'400px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '20px', lineHeight: '1.0'}}>Space 4</h1>
-          <img className="col-lg-5" src={Space4} style={{ maxHeight: '80%', maxWidth: '55%',opacity: '0.07'}}></img>
-          {/* Middle Right */}
+          <div className={wallClass() + ' space-4 row'}>
+            <h1 className='room-name'>Space 4</h1>
+            <img src={Space4} className={'room-image'}></img>
+
           </div>
         </div>
       </div>
-      <div className="container">
-      <div className="Bottom">
-        <div className="row">
-        <div className={wallClass() + " col-lg-9"}  style={{marginLeft:'-190px',  height: '390px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '0px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '30px'}}>Space 2</h1>
-          <img className="col-lg-8" src={Space2} style={{ padding: '20px', maxWidth: '50%', maxHeight: '90%', opacity: '0.07', }}></img>
-          {getUsers(2).map(user=><div key={user.email}>{user.firstName}</div>)}
-          {/* Bottom Left */}
+      <div className='Bottom row'>
+        <div className={wallClass() + ' space-2 col-6'}>
+          <div className='row'>
+            <h1 className='room-name'>Space 2</h1>
+            <img className="room-image" src={Space2}></img>
+
           </div>
-          <div className={wallClass() + " col-xl-4"} style={{ marginLeft:'949px', width: '200px', height: '400px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '-400px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '30px'}}>Space 1</h1>
-          <img className="col-lg-9" src={Space1} style={{padding: '20px', marginTop: '45px', opacity: '0.07'}}></img>
-          {/* Bottom Right */}
+        </div>
+        <div className='col-2'>
+          <div className={wallClass() + " row breakroom"}>
+          <h1 className='room-name'>Break Room</h1>
+          <img className="room-image-lobby" src={BreakRoom}></img>
+
           </div>
-          <div className={wallClass() + " col-xl-3"} style={{ marginLeft:'664px',  height: '190px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '-390px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '20px'}}>Break Room</h1>
-          <img className="col-lg-8" src={BreakRoom} style={{maxHeight:'100%', maxWidth: '40%',padding: '0px', opacity: '0.07'}}></img>
-          {/* Bottom Middle Top */}
+          <div className={wallClass() + " row lobby"}>
+          <h1 className='room-name'>Lobby</h1>
+          <img className="room-image-lobby" src={Door}></img>
+
           </div>
-          <div className={wallClass() + " col-xl-3"} style={{ marginLeft:'664px', height: '220px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '-220px'}}>
-          <h1 style={{textAlign: 'left', fontSize: '20px', lineHeight: '2.0'}}>Lobby</h1>
-          <img className="col-xl-12" src={Door} style={{marginTop: '0px', padding: '5px', maxHeight: '100%', maxWidth: '90%', opacity: '0.07'}}></img>
-          {/* Bottom Middle Bottom */}
+        </div>
+        <div className={wallClass() + ' space-1 col-4'}>
+          <div className='row'>
+            <h1 className='room-name'>Space 1</h1>
+            <img className="room-image-1" src={Space1}></img>
+
           </div>
         </div>
       </div>
-      </div>  
+  
       </div>
-    </div>
   );
 }
 

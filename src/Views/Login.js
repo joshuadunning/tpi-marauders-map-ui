@@ -25,7 +25,7 @@ function Login() {
       <div class="container">
         <div class="row align-items-center my-5">
           <div class="col-lg-3">
-          <img src={Logo} style={{marginLeft: '1135px', marginBottom: '350px'}}></img>
+          <img src={Logo} style={{position: 'fixed', top: '80px', right: '40px'}}></img>
           </div>
           <div class="col-lg-5">
             <div className="container1" justifyContent='flex-end'>
@@ -41,7 +41,7 @@ function Login() {
         
        </fieldset>
        <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
-          <button style={{backgroundColor: 'yellow', marginRight: '-5px', marginBottom: '300px'}} onClick={signin}>Login</button>
+          <button style={{backgroundColor: '#FFC500', marginRight: '-5px', marginBottom: '300px'}} onClick={signin}>Login</button>
               </div>
              </div>
           </div>

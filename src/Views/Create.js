@@ -34,33 +34,20 @@ function Create() {
 
   return (
     <div className="create">
-      <div class="container">
-        <div class="row align-items-center my-5">
-          <div class="col-lg-3">
-          <img src={Logo} style={{marginLeft: '1135px', marginBottom: '550px'}}></img>
-          </div>
-          <div class="col-lg-5">
-            <h1 class="font-weight-light">Sign Up</h1>
-            <fieldset>
-                <label> 
-                  <WebcamCapture image={image} setImage={setImage} />
-                  <p> </p>
-                   <input style={{lineHeight:0.5, width:"250px", marginLeft:'250px'}} placeholder='First Name' value={firstName} name="firstname" onChange={(e)=> setFirstName(e.target.value)}/>
-                  <p> </p>
-                  <input style={{lineHeight:0.5, width:"250px", marginLeft:'250px'}} placeholder='Last Name' value={lastName} name="lastname" onChange={(e)=> setLastName(e.target.value)}/> 
-                  <p> </p>
-                  <input style={{lineHeight:0.5, width:"250px", marginLeft:'250px'}} placeholder='Email' value={email} name="email"onChange={(e)=> setEmail(e.target.value)}/>
-                  
-                </label>
-            </fieldset>
-            <div style={{ display: 'flex', justifyContent: 'flex-end'}}>
-                <button style={{backgroundColor: 'yellow', marginRight: '-55px', marginBottom: '300px'}} onClick={setUserEntry}>Register</button>
-            </div>
-
-            </div>
-          </div>
+        <h1 className="font-weight-light" style={{marginTop: '50px'}}>Sign Up</h1>
+        <img src={Logo} style={{position: 'fixed', top: '80px', right: '40px'}}></img>
+        <div className='d-flex justify-content-center' style={{marginTop:'5%'}}>
+              <div className='col-lg-2'>
+                <WebcamCapture image={image} setImage={setImage} />
+              </div>  
+              <div className='col-lg-2 ml-4 d-flex flex-column align-self-center'>
+                <input style={{lineHeight:0.5, marginBottom: '5px'}} placeholder='First Name' value={firstName} name="firstname" onChange={(e)=> setFirstName(e.target.value)}/>
+                <input style={{lineHeight:0.5, marginBottom: '5px'}} placeholder='Last Name' value={lastName} name="lastname" onChange={(e)=> setLastName(e.target.value)}/> 
+                <input style={{lineHeight:0.5, marginBottom: '5px'}} placeholder='Email' value={email} name="email"onChange={(e)=> setEmail(e.target.value)}/>
+                <button style={{marginLeft: 'auto', width:"100px", backgroundColor: '#FFC500', border: '1px solid grey', borderRadius: '3px'}} onClick={setUserEntry}>Register</button>
+              </div>
         </div>
-      </div>
+    </div>
       );
      
   };

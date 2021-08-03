@@ -30,36 +30,34 @@ function WebcamCapture({image, setImage}) {
 
     return (
         <div className="webcam-container">
-        <div className="webcam-img">
-            {image.length==0?<Webcam
-            style={{marginRight: '250px', marginBottom: '-191px'}}
-            audio={false}
-            height={190}
-            ref={webcamRef}
-            screenshotFormat="image/jpeg"
-            width={220}
-            videoConstraints={videoConstraints}
-            />:<img src={image} alt='hi'/>}
-        </div>
-        <div style={{display: 'flex', justifyContent: 'flex-end'}}>
-            <button style={{marginRight: '100px', marginBottom: '5px'}} onClick={(e)=>{e.preventDefault();capture();}}> Take Photo</button>
-        </div>
-        <div>
+            <div className="webcam-img">
+                {image.length==0?<Webcam
+                style={{}}
+                audio={false}
+                // height={190}
+                ref={webcamRef}
+                screenshotFormat="image/jpeg"
+                // width={220}
+                videoConstraints={videoConstraints}
+                />:<img src={image} alt='hi'/>}
+                
+            </div>
+            <div style={{display: 'flex', justifyContent: 'center'}}>
             {image!=''?
-            <button onClick={(e)=>
-            {
-            e.preventDefault();
-            setImage('')
-            }}
-            className="webcam-btn">
-            Retake Image</button>:
-            <button onClick={(e)=>{
-            e.preventDefault();
-            capture();
-            }}
-            className="webcam-btn"></button>
-            }
-        </div>
+                <button onClick={(e)=>
+                {
+                e.preventDefault();
+                setImage('')
+                }}
+                className="webcam-btn">
+                Clear Image</button>:
+                <button onClick={(e)=>{
+                e.preventDefault();
+                capture();
+                }}
+                className="webcam-btn">Take Photo</button>
+                }
+            </div>
         </div>
         );
 };
