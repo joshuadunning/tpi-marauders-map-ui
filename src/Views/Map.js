@@ -23,11 +23,7 @@ function Map() {
    }
 
    const getUsers = (space)=>{
-     let arr= users.filter((user)=>user.location==space)
-     for(let i=0; i < 3; i++){
-       arr=arr.concat(arr)
-     }
-     return arr
+     return users.filter((user)=>user.location==space)
    }
 
    const getLogo = ()=>{
