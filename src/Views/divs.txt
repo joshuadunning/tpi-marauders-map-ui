@@ -1,0 +1,6 @@
+ <div class="col-lg-7" style={{border: 'border:thin', marginLeft:'-190px', border: '14px solid black', height: '375px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '0px'}}>
+          {/* Bottom Left */}
+          </div>
+          <div class="col-lg-3" style={{border: 'border:thin', marginLeft:'1044px', border: '14px solid black', height: '390px', marginRight: '400px', borderBottomWidth: '15px', marginTop: '-400px'}}>
+          {/* Bottom Right */}
+          </div>

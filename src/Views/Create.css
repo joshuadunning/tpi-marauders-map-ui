@@ -1,0 +1,9 @@
+.create{
+    background-color: lightgray;
+    text-align: left;
+
+}
+
+::-webkit-input-placeholder {
+    text-align: center;
+  }
