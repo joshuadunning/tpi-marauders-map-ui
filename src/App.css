@@ -1,5 +1,16 @@
+body{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+#root{
+  height: 100%;
+}
 .App {
   text-align: center;
+  background-color: #E7E6E6;
+  height: 100%;
 }
 
 .App-logo {
@@ -15,7 +26,7 @@
 
 .wall-default{
   border: thin;
-  border: 14px solid black;
+  border: 12px solid black;
 }
 
 
@@ -48,4 +59,84 @@
   }
 }
 
-.firebase-emulator-warning{ display: none; }
+
+.Top{
+  height: 50%;
+  position: relative;
+}
+.Bottom{
+  height: 50%;
+  position: relative;
+}
+
+.TopRight{
+  height: 100%;
+  position: relative;
+}
+
+.map{
+  height: calc(100% - 56px);
+  width: calc(100% - 24px);
+  margin-left: 12px;
+}
+
+.space-4{
+  height: 50%;
+  position: relative;
+}
+
+.space-5{
+  position: relative;
+  height: 50%;
+}
+.breakroom{
+  position: relative;
+  height: 50%;
+}
+.lobby{
+  position: relative;
+  height: 50%;
+}
+
+.topleft{
+  padding: 0px;
+  height: 100%;
+}
+
+.room-name{
+  text-align: left;
+  font-size: 20px;
+  line-height: 1;
+  margin-top: 2px;
+  margin-left: 2px;
+}
+
+.room-image{
+  opacity: .07;
+  height: 90%;
+  margin-top: 2%;
+  width: 40%;
+  position: absolute;
+  margin-left: 30%;
+}
+
+.room-image-1{
+  opacity: .07;
+  height: 90%;
+  margin-top: 9%;
+  width: 80%;
+  position: absolute;
+  margin-left: 10%;
+}
+
+.room-image-lobby{
+  opacity: .07;
+  height: 90%;
+  margin-top: 3%;
+  width: 80%;
+  position: absolute;
+  margin-left: 10%;
+}
+
+.firebase-emulator-warning { display: none; }
+
