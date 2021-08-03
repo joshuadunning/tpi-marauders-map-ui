@@ -17,7 +17,11 @@ function Map() {
    }
 
    const getUsers = (space)=>{
-     return users.filter((user)=>user.location==space)
+     let arr= users.filter((user)=>user.location==space)
+     for(let i=0; i < 3; i++){
+       arr=arr.concat(arr)
+     }
+     return arr
    }
 
    useEffect(()=>{
@@ -44,12 +48,12 @@ function Map() {
           <div className={wallClass() + ' space-5 row'}>
             <h1 className='room-name'>Space 5</h1>
             <img className="room-image" src={Space2}></img>
-
+            {getUsers(5).map(user=><UserEntity user={user}/>)}
           </div>
           <div className={wallClass() + ' space-4 row'}>
             <h1 className='room-name'>Space 4</h1>
             <img src={Space4} className={'room-image'}></img>
-
+            {getUsers(4).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
       </div>
@@ -58,26 +62,26 @@ function Map() {
           <div className='row'>
             <h1 className='room-name'>Space 2</h1>
             <img className="room-image" src={Space2}></img>
-
+            {getUsers(2).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
         <div className='col-2'>
           <div className={wallClass() + " row breakroom"}>
           <h1 className='room-name'>Break Room</h1>
           <img className="room-image-lobby" src={BreakRoom}></img>
-
+          {getUsers(3).map(user=><UserEntity user={user}/>)}
           </div>
           <div className={wallClass() + " row lobby"}>
           <h1 className='room-name'>Lobby</h1>
           <img className="room-image-lobby" src={Door}></img>
-
+          {getUsers(6).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
         <div className={wallClass() + ' space-1 col-4'}>
           <div className='row'>
             <h1 className='room-name'>Space 1</h1>
             <img className="room-image-1" src={Space1}></img>
-
+            {getUsers(1).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
       </div>

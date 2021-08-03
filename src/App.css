@@ -140,3 +140,7 @@ body{
 
 .firebase-emulator-warning { display: none; }
 
+.userPadding{
+  padding: 5px;
+}
+
