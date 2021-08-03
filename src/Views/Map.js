@@ -8,11 +8,15 @@ import Space1 from '../assets/401-4018684_transparent-hr-png-hr-icon-png-png-dow
 import SGLogo from '../assets/SGLogo.png'
 import { db } from "../services/fire";
 import UserEntity from "./UserEntity";
+import Hat1 from '../assets/image (1).png'
+import Hat2 from '../assets/image.png'
+
 
 function Map() {
 
   const [users, setusers] = useState([]) 
   const [theme, setTheme] = useState('default')
+  const [hat, setHat] = useState(null)
   
   const wallClass = ()=>{
      return 'wall-' + theme
@@ -38,6 +42,10 @@ function Map() {
      return theme === 'hp' ? 'theme-picker-hp' : ''
    }
 
+   const hatPicker = () => {
+     return hat === ''
+   }
+
    useEffect(()=>{
       db.collection("users").onSnapshot((snapshot)=>{
         const arr = []
@@ -61,17 +69,21 @@ function Map() {
             <option value='default'>Default</option>
             <option value='hp'>Marauders Map</option>
           </select>
+          <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setHat(e.target.value)}>
+            <option value={Hat1}>Christmas</option>
+            <option value={Hat2}>Halloween</option>
+          </select>
         </div>
         <div className='TopRight col-4 '>
           <div className={wallClass() + ' space-5 row'}>
             <h1 className={roomNameClass()}>Space 5</h1>
             {theme == 'default' ? <img className="room-image" src={Space2} />: ''}
-            {getUsers(5).map(user=><UserEntity user={user}/>)}
+            {getUsers(5).map(user=><UserEntity hat={hat} user={user}/>)}
           </div>
           <div className={wallClass() + ' space-4 row'}>
             <h1 className={roomNameClass()}>Space 4</h1>
             {theme == 'default' ? <img className="room-image" src={Space4} />: ''}
-            {getUsers(4).map(user=><UserEntity user={user}/>)}
+            {getUsers(4).map(user=><UserEntity hat={hat} user={user}/>)}
           </div>
         </div>
       </div>
@@ -80,7 +92,7 @@ function Map() {
           <div className='row'>
             <h1 className={roomNameClass()}>Space 2</h1>
             {theme == 'default' ? <img className="room-image" src={Space2} />: ''}
-            {getUsers(2).map(user=><UserEntity user={user}/>)}
+            {getUsers(2).map(user=><UserEntity hat={hat} user={user}/>)}
 
           </div>
         </div>
@@ -88,19 +100,19 @@ function Map() {
           <div className={wallClass() + " row breakroom"}>
           <h1 className={roomNameClass()}>Break Room</h1>
           {theme == 'default' ? <img className="room-image-lobby" src={BreakRoom} />: ''}
-          {getUsers(3).map(user=><UserEntity user={user}/>)}
+          {getUsers(3).map(user=><UserEntity hat={hat} user={user}/>)}
           </div>
           <div className={wallClass() + " row lobby"}>
           <h1 className={roomNameClass()}>Lobby</h1>
           {theme == 'default' ? <img className="room-image-lobby" src={Door} />: ''}
-          {getUsers(6).map(user=><UserEntity user={user}/>)}
+          {getUsers(6).map(user=><UserEntity hat={hat} user={user}/>)}
           </div>
         </div>
         <div className={wallClass() + ' space-1 col-4'}>
           <div className='row'>
             <h1 className={roomNameClass()}>Space 1</h1>
             {theme == 'default' ? <img className="room-image-1" src={Space1} />: ''}
-            {getUsers(1).map(user=><UserEntity user={user}/>)}
+            {getUsers(1).map(user=><UserEntity hat={hat} user={user}/>)}
           </div>
         </div>
       </div>
