@@ -1,7 +1,14 @@
 import React from "react";
 import { Link, withRouter } from "react-router-dom";
+import {BiFullscreen} from "react-icons/bi"
 
 function Navigate(props) {
+
+  const toggleFullscreen = () => {
+      const el = document.getElementById('map')
+      el.requestFullscreen()
+  }
+
   return (
     <div className="navigation">
       <nav className="navbar navbar-expand navbar-dark bg-dark">
@@ -42,6 +49,8 @@ function Navigate(props) {
               </li>
             </ul>
           </div>
+          <BiFullscreen className={'fullscreen-icon'} onClick={toggleFullscreen}/> 
+
         </div>
       </nav>
     </div>
