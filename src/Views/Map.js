@@ -7,6 +7,7 @@ import Door from '../assets/311-3110532_open-door-with-border-vector-door-icon-v
 import Space1 from '../assets/401-4018684_transparent-hr-png-hr-icon-png-png-download.png'
 import SGLogo from '../assets/SGLogo.png'
 import { db } from "../services/fire";
+import UserEntity from "./UserEntity";
 
 function Map() {
 
@@ -36,6 +37,7 @@ function Map() {
    useEffect(()=>{
       db.collection("users").onSnapshot((snapshot)=>{
         const arr = []
+        console.log("1")
         snapshot.forEach((doc)=>{
           console.log(doc.data())
             arr.push(doc.data())
@@ -60,12 +62,12 @@ function Map() {
           <div className={wallClass() + ' space-5 row'}>
             <h1 className={roomNameClass()}>Space 5</h1>
             {theme == 'default' ? <img className="room-image" src={Space2} />: ''}
-
+            {getUsers(5).map(user=><UserEntity user={user}/>)}
           </div>
           <div className={wallClass() + ' space-4 row'}>
             <h1 className={roomNameClass()}>Space 4</h1>
             {theme == 'default' ? <img className="room-image" src={Space4} />: ''}
-
+            {getUsers(4).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
       </div>
@@ -74,6 +76,7 @@ function Map() {
           <div className='row'>
             <h1 className={roomNameClass()}>Space 2</h1>
             {theme == 'default' ? <img className="room-image" src={Space2} />: ''}
+            {getUsers(2).map(user=><UserEntity user={user}/>)}
 
           </div>
         </div>
@@ -81,19 +84,19 @@ function Map() {
           <div className={wallClass() + " row breakroom"}>
           <h1 className={roomNameClass()}>Break Room</h1>
           {theme == 'default' ? <img className="room-image-lobby" src={BreakRoom} />: ''}
-
+          {getUsers(3).map(user=><UserEntity user={user}/>)}
           </div>
           <div className={wallClass() + " row lobby"}>
           <h1 className={roomNameClass()}>Lobby</h1>
           {theme == 'default' ? <img className="room-image-lobby" src={Door} />: ''}
-
+          {getUsers(6).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
         <div className={wallClass() + ' space-1 col-4'}>
           <div className='row'>
             <h1 className={roomNameClass()}>Space 1</h1>
             {theme == 'default' ? <img className="room-image-1" src={Space1} />: ''}
-
+            {getUsers(1).map(user=><UserEntity user={user}/>)}
           </div>
         </div>
       </div>

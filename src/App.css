@@ -145,6 +145,10 @@ body{
 
 .firebase-emulator-warning { display: none; }
 
+.userPadding{
+  padding: 5px;
+}
+
 .fullscreen-icon{
   color: white;
   cursor: pointer;
