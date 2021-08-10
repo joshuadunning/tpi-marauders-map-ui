@@ -8,8 +8,9 @@ import Space1 from '../assets/401-4018684_transparent-hr-png-hr-icon-png-png-dow
 import SGLogo from '../assets/SGLogo.png'
 import { db } from "../services/fire";
 import UserEntity from "./UserEntity";
-import Hat1 from '../assets/image (1).png'
-import Hat2 from '../assets/image.png'
+import Christmas from '../assets/image (1).png'
+import Halloween from '../assets/image.png'
+import {BsMap} from 'react-icons/bs'
 
 
 function Map() {
@@ -17,34 +18,34 @@ function Map() {
   const [users, setusers] = useState([]) 
   const [theme, setTheme] = useState('default')
   const [hat, setHat] = useState(null)
-  
+
   const wallClass = ()=>{
      return 'wall-' + theme
    }
 
    const roomNameClass = ()=>{
      return `room-name room-name-` + theme
-   }
+  }
 
    const getUsers = (space)=>{
      return users.filter((user)=>user.location==space)
-   }
+  }
 
    const getLogo = ()=>{
     return theme === 'default' ? Logo : SGLogo
-   }
+  }
 
    const getBG = () => {
      return theme === 'hp' ? 'hp': ''
-   }
+  }
 
-   const themePickerBg = () => {
-     return theme === 'hp' ? 'theme-picker-hp' : ''
-   }
+  //  const themePickerBg = () => {
+  //    return theme === 'hp' ? 'theme-picker-hp' : ''
+  //  }
 
-   const hatPicker = () => {
-     return hat === ''
-   }
+      const toggleTheme = () => {
+        return theme === 'hp' ? setTheme('default') : setTheme('hp')
+  }
 
    useEffect(()=>{
       db.collection("users").onSnapshot((snapshot)=>{
@@ -65,25 +66,32 @@ function Map() {
       <img src={getLogo()} style={{position: 'fixed', top: '80px', left: '40px', maxHeight: '200px'}}></img>
       <div className="Top row">
         <div className={wallClass() + ' col-8 topleft'}>
-          <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setTheme(e.target.value)}>
+          {/* <label className={toggleTheme()} style={{float: 'right', position: 'relative', display: 'inline-block', width: '60px', height: '34px'}} >     
+            <input type="checkbox" className="checkbox"/>
+            <span className="slider round"></span>
+          </label> */}
+          
+          <BsMap className={'map-icon'} onClick={(e)=> toggleTheme()} /> 
+          
+          {/* <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setTheme(e.target.value)}>
             <option value='default'>Default</option>
             <option value='hp'>Marauders Map</option>
-          </select>
-          <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setHat(e.target.value)}>
-            <option value={Hat1}>Christmas</option>
-            <option value={Hat2}>Halloween</option>
-          </select>
+          </select> */}
+          {/* <select className={themePickerBg()} style={{float:'right'}} onChange={(e)=> setHat(e.target.value)}>
+            <option value={Christmas} >Christmas</option>
+            <option value={Halloween}>Halloween</option>
+          </select> */}
         </div>
         <div className='TopRight col-4 '>
           <div className={wallClass() + ' space-5 row'}>
             <h1 className={roomNameClass()}>Space 5</h1>
             {theme == 'default' ? <img className="room-image" src={Space2} />: ''}
-            {getUsers(5).map(user=><UserEntity hat={hat} user={user}/>)}
+            {getUsers(5).map(user=><UserEntity hat={hat} user={user} />)}
           </div>
           <div className={wallClass() + ' space-4 row'}>
             <h1 className={roomNameClass()}>Space 4</h1>
             {theme == 'default' ? <img className="room-image" src={Space4} />: ''}
-            {getUsers(4).map(user=><UserEntity hat={hat} user={user}/>)}
+            {getUsers(4).map(user=><UserEntity hat={hat} user={user} />)}
           </div>
         </div>
       </div>
